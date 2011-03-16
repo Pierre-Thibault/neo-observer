@@ -1,0 +1,9 @@
+Neo-Observer is a Python module implementing the observer pattern using a 
+centralized registry. You send an event to the registry and it will dispatch
+the call the registered observers of the event. You can register functions or
+subclasses of a defined observable interface. Events have a name, a sender and 
+optional info object. You can register an observable to receive an event based
+on its name, sender or both. Require Python 2.5 and higher (excluding 
+Python 3).
+
+Project site: https://code.google.com/p/neo-observer/
