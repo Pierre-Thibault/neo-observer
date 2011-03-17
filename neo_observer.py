@@ -135,8 +135,8 @@ class ObserverRegistry(object):
     def remove_observer(self, observer_or_func):
         """
         Remove an observer from the registry.
-        @param observer: The observer to remove. An object of type IObserver,
-        a function or a lambda expression.
+        @param observer_or_func: The observer to remove. An object of type
+        IObserver, a function or a lambda expression.
         """
         
         list_of_dict = [self.__senders_to_observers, 
