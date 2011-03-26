@@ -36,7 +36,7 @@ class _ObserverRegistrationType():
             return _ObserverRegistrationType.for_all_events
             
 def _validate_event_name(name):
-    assert name == None or (type(name) == str and name != ""), \
+    assert name == None or (isinstance(name, basestring) and name != ""), \
         "Event names must be none empty strings."
     
 class ObserverRegistry(object):
@@ -176,6 +176,11 @@ class IObserver(object):
         information about the event.
         """
 def observer(sent_by=None, named=None):
+    """
+    A decorator that automatically register the function decorated.
+    @param sent_by: The sender to observe.
+    @param named: The name of the event to observe.
+    """
     _validate_event_name(named)
     def decorator(func):
         ObserverRegistry.default_registry.add_observer(func, sent_by, named)
@@ -192,7 +197,7 @@ class Event(object):
     def validate_sender_name(sender, name):
         assert sender != None and sender != "", "Sender must be specified."
         assert name != None and name != "", "Name must be specified."
-        assert isinstance(name, str), "Name must be a string."
+        assert isinstance(name, basestring), "Name must be a string."
         
     
     def __init__(self, sender, name, info=None):
