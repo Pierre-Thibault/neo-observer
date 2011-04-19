@@ -43,22 +43,33 @@ class ObserverRegistry(object):
     def add_observer(self, observer, sent_by=None, named=None, \
                      method="__call__"):
         """
-        Add an observer to the registry. You can be notified of all events by
-        not specifying sent_by and named. You can also specify both sent_by
-        and named to received only the event of a specific sender under a
-        specific name.
+        Add an observer to the registry. There are four types of registration
+        for an observer:
+        
+        1) For all events (use sent_by=None, named=None);
+        
+        2) For a specific sender (use sent_by=the_sender, named=None);
+        
+        3) For a specific name (use sent_by=None, named=the_name);
+        
+        4) For a specific sender using a specific name (sent_by=the_sender, 
+        named=the_name).
+        
         @param observer: The observer to add. An object of type
         IObserver, or any callable that can called with zero or one argument.
         If the callable can be called with one argument, this argument will be
-        the event.
+        the event (an object of type Event).
         @param sent_by: The sender that the observer want to observe. Optional.
         @param named: The name of the event the observer want to observe. Must
         be a string if specified. Optional.
         @param method: Method name to call on the observer. If the observer is
-        IObserver, receive_event will be used regardless of this value.
+        IObserver, receive_event will be used regardless of this value. 
+        Optional.
         """
         
         _validate_event_name(named)
+        
+        self.remove_observer(observer)
         
         # Add in proper registry:
         for i in self.__registries:
@@ -75,13 +86,16 @@ class ObserverRegistry(object):
         sender of the event.
         @param name: The name of the event if event_or_sender is not an
         Event.
-        @param info: Give more information about an event. It is recommended
-        to use a dictionary. Optional. 
+        @param info: Give more information about an event if event_or_sender 
+        is not an Event. It is recommended to use a dictionary. Optional. 
         """
         
         is_event = isinstance(event_or_sender, Event)
         
+        # Validation:
         assert (is_event and name == None) or not is_event, "The name" + \
+          " was supplied two times." 
+        assert (is_event and info == None) or not is_event, "The info" + \
           " was supplied two times." 
         
         # Create the event if needed:

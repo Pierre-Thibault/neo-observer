@@ -97,10 +97,10 @@ class Test(unittest.TestCase):
         self.reset_events()
         self.registry2.send_event("sender3", "-")
         self.registry2.send_event("sender1", "a")
-        self.validate_events((Event("sender1", "a"), None, None, None, None))
+        self.validate_events((Event("sender3", "-"), None, None, None, None))
         self.registry1.add_observer(self.observer5, "sender2")
         self.registry1.send_event("sender2", "b")
-        self.validate_events((Event("sender1", "a"), None, None, 
+        self.validate_events((Event("sender3", "-"), None, None, 
                               Event("sender2", "b"), Event("sender2", "b")))
         
     def test_observer_for_name(self):
@@ -124,7 +124,7 @@ class Test(unittest.TestCase):
         self.reset_events()
         self.registry2.send_event(Event("sender", "b"))
         self.registry2.send_event(Event("sender2", "d"))
-        self.validate_events((None, None, None, Event("sender2", "d"), None))
+        self.validate_events((None, None, None, Event("sender", "b"), None))
         self.reset_events()
         self.registry1.send_event("sender", "c")
         self.validate_events((None, Event("sender", "c"), 

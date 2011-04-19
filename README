@@ -6,4 +6,27 @@ optional info object. You can register an observable to receive an event based
 on its name, sender or both. Require Python 2.5 and higher (excluding 
 Python 3).
 
+2011-04-19: To remove any ambiguity, adding the same observer again cancel
+the previous registration.
+
+2011-04-19: *New improved version*
+
+  * Use weak references whenever it is possible. Objects no longer referenced
+by your code will not receive events so you don't have to remember to call 
+'remove_observer'.
+    
+  * Any callable can be used as an observer as long as the callable can be
+called with the single event argument or without argument at all. 
+    
+  * When adding an observer, you can specify the method to be called on the
+observer to receive the event.
+    
+  * Implementation changes: Using a type hierarchy instead of a type flag for 
+the different types of observers.
+
+While I was having a centralized registry in mind when I was creating this
+class, I realize that Observer can work in a decentralized way too. Any class
+derived from ObserverRegistry is an ObserverRegistry too 
+(just don't forget to call __init__). 
+ 
 Project site: https://code.google.com/p/neo-observer/
