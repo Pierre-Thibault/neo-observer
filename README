@@ -25,8 +25,8 @@ observer to receive the event.
 the different types of observers.
 
 While I was having a centralized registry in mind when I was creating this
-class, I realize that Observer can work in a decentralized way too. Any class
-derived from ObserverRegistry is an ObserverRegistry too 
+class, I realize that ObserverRegistry can work in a decentralized way too. Any
+class derived from ObserverRegistry is an ObserverRegistry too 
 (just don't forget to call __init__). 
  
 Project site: https://code.google.com/p/neo-observer/
