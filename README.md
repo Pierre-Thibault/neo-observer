@@ -36,3 +36,5 @@ Author: Pierre Thibault (pierre.thibault1 -at- gmail.com)
 License: MIT
 
 Project site: [https://github.com/Pierre-Thibault/neo-observer](https://github.com/Pierre-Thibault/neo-observer)
+
+Epydoc documentation located at: [https://github.com/Pierre-Thibault/neo-observer/wiki/doc/index.html](https://github.com/Pierre-Thibault/neo-observer/wiki/doc/index.html) but it is html so it is better to clone the wiki and open it locally in a web browser.
