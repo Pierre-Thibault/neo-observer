@@ -29,4 +29,10 @@ class, I realize that ObserverRegistry can work in a decentralized way too. Any
 class derived from ObserverRegistry is an ObserverRegistry too 
 (just don't forget to call __init__). 
  
+Comments or questions? [Join the user group](http://groups.google.com/group/neo-users)
+
+Author: Pierre Thibault (pierre.thibault1 -at- gmail.com)
+
+License: MIT
+
 Project site: [https://github.com/Pierre-Thibault/neo-observer](https://github.com/Pierre-Thibault/neo-observer)
