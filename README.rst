@@ -6,6 +6,9 @@ Events have a name, a sender and optional info object. You can register
 an observable to receive an event based on its name, sender or both.
 Require Python 2.5 and higher (excluding Python 3).
 
+2015-06-05: 1.0.1 Dib push the doc on Github. No more wiki and wiki
+project. Updated REAME.
+
 2011-04-19: To remove any ambiguity, adding the same observer again
 cancel the previous registration.
 
@@ -35,9 +38,6 @@ License: MIT
 
 Project site: https://github.com/Pierre-Thibault/neo-observer
 
-Epydoc documentation located at:
-https://github.com/Pierre-Thibault/neo-observer/wiki/doc/index.html but
-it is html so it is better to clone the wiki and open it locally in a
-web browser.
+Epydoc documentation: https://pierre-thibault.github.io/neo-observer/
 
 Join the user group: http://groups.google.com/group/neo-users
